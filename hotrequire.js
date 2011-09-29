@@ -48,4 +48,5 @@ function hotRequire(path, callback)
 	return require(filename); // returns the required module (as usual)
 }
 
+require.prototype.__proto__.hot = hotRequire;
 module.exports = exports = hotRequire;

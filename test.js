@@ -1,6 +1,6 @@
 var hotrequire = require('./hotrequire.js');
 
-var example = require.hot('./example.js', function(module) {
+var example = require.hot('./examplemodule.js', function(module) {
 	example = module;
 });
 
