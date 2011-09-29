@@ -20,3 +20,7 @@
 ## Requirements
 
 * fs.js & node-waf & v8.h (Comes with node)
+
+## Installation
+
+	npm install hotrequire
