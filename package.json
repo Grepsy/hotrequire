@@ -1,8 +1,8 @@
 {
-	"name": "hotRequire",
-	"description": "hot-load modules into a user defined context",
-	"version": "0.0.1",
-	"author": "Kai Dorschner",
+	"name": "hotrequire",
+	"description": "hot-load modules into current scope",
+	"version": "0.1.0",
+	"author": "Kai Dorschner https://github.com/krnlde/",
 	"repository": {
 		"type": "git",
 		"url": "http://github.com/krnlde/hotrequire.git"
@@ -10,5 +10,5 @@
 	"engines": {
 		"node": ">=0.1.90"
 	},
-	"main": "hotrequire.js"
+	"main": "hotrequire"
 }
