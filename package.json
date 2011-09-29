@@ -1,0 +1,12 @@
+{ name:		'hotRequire'
+, version:	'0.1.0'
+, main:		'./hotrequire.js'
+, dependencies:
+	{}
+, author:	'Kai Dorschner <the-kernel32@web.de>'
+, homepage:	"https://github.com/krnlde/hotrequire",
+, repository:
+	{ type:	'git'
+	, url:	'git://github.com/krnlde/hotrequire.git'
+	}
+}
