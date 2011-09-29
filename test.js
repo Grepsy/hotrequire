@@ -1,8 +1,10 @@
 var hotrequire = require('./hotrequire.js');
 
-hotrequire('./example.js', this, 'module'); // loads the module into "this" context
+var example = hotrequire('./example.js', function(module) {
+	example = module;
+});
 
-console.log(this.module.message); // Outputs the message of the module
+console.log(example.message); // Outputs the message of the module
 
 process.on('modified', function(file) { // Debug information
 	console.log('['+new Date()+': '+file+' reloaded]');
@@ -14,5 +16,5 @@ process.on('removed', function(file) { // Debug information
 
 var self = this;
 process.on('reloaded', function(file) { // Debug information
-	console.log(self.module.message); // Will output the new message of the module (after you have changed it)
+	console.log(example.message); // Will output the new message of the module (after you have changed it)
 });

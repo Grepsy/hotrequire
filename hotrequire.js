@@ -21,30 +21,30 @@
  *
  * @todo make this function global
  */
-function hotRequire(path, context, varname)
+function hotRequire(path, callback)
 {
 	var	  fs			= require('fs')
 		, filename		= require.resolve(path) // resolved path (real path); needed to delete the cache properly.
 		;
 
-	context[varname] = require(filename); // load the contents into the context
 	fs.watchFile(filename, function(current, previous) {
 		if(current.nlink === 0) // path does not exist anymore
 		{
 			process.emit('removed', filename);
 			delete require.cache[filename];
 			fs.unwatchFile(filename);
-			return;
+			return; // short circuit
 		}
 
 		if(current.mtime - previous.mtime) // if x > 0, has changed
 		{
 			process.emit('modified', filename);
 			delete require.cache[filename]; // clear the cache (makes sure that the NEW file will be loaded)
-			context[varname] = require(filename); // rebuild cache with new file immediately
+			callback(require(filename)); // rebuild cache with new file immediately
 			process.emit('reloaded', filename);
 		}
 	});
+	return require(filename); // returns the required module (as usual)
 }
 
 module.exports = exports = hotRequire;

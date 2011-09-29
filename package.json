@@ -1,12 +1,14 @@
-{ name:		'hotRequire'
-, version:	'0.1.0'
-, main:		'./hotrequire.js'
-, dependencies:
-	{}
-, author:	'Kai Dorschner <the-kernel32@web.de>'
-, homepage:	"https://github.com/krnlde/hotrequire",
-, repository:
-	{ type:	'git'
-	, url:	'git://github.com/krnlde/hotrequire.git'
-	}
+{
+	"name": "hotRequire",
+	"description": "hot-load modules into a user defined context",
+	"version": "0.0.1",
+	"author": "Kai Dorschner",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/krnlde/hotrequire.git"
+	},
+	"engines": {
+		"node": ">=0.1.90"
+	},
+	"main": "hotrequire.js"
 }
