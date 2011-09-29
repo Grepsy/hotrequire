@@ -19,7 +19,8 @@
  * @param object context Context in which scope the module will be loaded in.
  * @param string varname Variable name inside the context to access the module.
  *
- * @todo make this function global
+ * @todo extend require object to require.hot(path, callback);
+ *		 require.prototype.hot = function(path, callback) doesn't work.
  */
 function hotRequire(path, callback)
 {
