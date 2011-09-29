@@ -1,7 +1,7 @@
 {
 	"name": "hotrequire",
-	"description": "hot-load modules into current scope",
-	"version": "0.1.0",
+	"description": "Extends require object by adding the require.hot(path, callback) method. This enables you to hot-load modules into the current scope.",
+	"version": "0.2.0",
 	"author": "Kai Dorschner https://github.com/krnlde/",
 	"repository": {
 		"type": "git",

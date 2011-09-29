@@ -10,11 +10,17 @@
 ## Usage
 
 	var hotrequire = require('./hotrequire.js');
-
+	
 	var example = hotrequire('./example.js', function(module) {
 		example = module
 	});
-
+	
+	// or
+	
+	var example = require.hot('./example.js', function(module) {
+		example = module
+	});
+	
 	console.log(example.message);
 
 ## Requirements
