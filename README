@@ -1,0 +1,19 @@
+# hotRequire
+
+	hotRequire hot-loads modules by extending the system's require() function.
+	Hot-loading means it watches the file for changes and then reloades it's parsed
+	content into the variable set by the user.
+
+	The file watcher emits catchable events to the process variable (modified, removed, deleted).
+
+## Usage
+
+	require('./hotrequire.js');
+
+	hotrequire('./example.js', this, 'module');
+
+	console.log(this.module.message);
+
+## Requirements
+
+* fs.js & node-waf & v8.h (Comes with node)
