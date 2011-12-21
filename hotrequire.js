@@ -25,19 +25,20 @@
 function hotRequire(path, callback)
 {
 	var	  fs			= require('fs')
-		, filename		= require.resolve(path) // resolved path (real path); needed to delete the cache properly.
+		, fspath		= require('path')
+		, filename		= path // resolving paths here doesn't work, we need the client to resolve for us
 		;
 
-	fs.watchFile(filename, function(current, previous) {
-		if(current.nlink === 0) // path does not exist anymore
+	var watcher = fs.watch(filename, function(event) {
+		if(!fspath.existsSync(filename)) // path does not exist anymore
 		{
 			process.emit('removed', filename);
 			delete require.cache[filename];
-			fs.unwatchFile(filename);
+			watcher.close();
 			return; // short circuit
 		}
 
-		if(current.mtime - previous.mtime) // if x > 0, has changed
+		if(event === "change")
 		{
 			process.emit('modified', filename);
 			delete require.cache[filename]; // clear the cache (makes sure that the NEW file will be loaded)
